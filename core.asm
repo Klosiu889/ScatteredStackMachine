@@ -3,7 +3,7 @@ global core
 section .text
 
 core:
-    xor rdx, rdx
+    xor     rdx, rdx
 .main_loop:
     mov     al, byte [rsi + rdx + 0]
     inc     rdx
@@ -21,7 +21,6 @@ core:
     je      .operation_D
     cmp     al, 'E'
     je      .operation_E
-    inc     rdx
     jmp     .main_loop
 .operation_number:
     pop     rcx
@@ -42,4 +41,5 @@ core:
     push    rcx
     jmp     .main_loop
 .end:
+    pop     rax
     ret
