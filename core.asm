@@ -23,7 +23,6 @@ core:
     je      .operation_E
     jmp     .main_loop
 .operation_number:
-    pop     rcx
     push    rax
     jmp     .main_loop
 .operation_C:
