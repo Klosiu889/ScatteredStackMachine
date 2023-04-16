@@ -6,7 +6,7 @@ core:
     xor rdx, rdx
 .main_loop:
     mov     al, byte [rsi + rdx + 0]
-    ;cmp     al, 0x0
+    cmp     al, 0x0
     jmp      .end
     ;cmp     al, '0'
     ;jl      .not_number
