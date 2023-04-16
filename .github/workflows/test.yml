@@ -1,0 +1,24 @@
+name: Assembly CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  Test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ilammy/setup-nasm@v1
+      - uses: actions/checkout@v3
+      - name: build
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make my_tests
+      - name: my_tests
+        run: ./build/my_tests
