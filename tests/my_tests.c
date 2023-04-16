@@ -48,7 +48,7 @@ int main() {
     static pthread_t tid[N];
     static core_call_t params[N];
     static const char *computation[N] = {
-            "0",
+            "0123456789",
             "5"
     };
     static const uint64_t result[N] = {0, 5};
