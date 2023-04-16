@@ -2,7 +2,7 @@ global core
 
 section .text
 
-global .start
+.core:
     xor rdx, rdx
 .main_loop:
     mov     al, byte [rsi + rdx + 0]
