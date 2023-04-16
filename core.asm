@@ -7,13 +7,13 @@ core:
 .main_loop:
     mov     al, byte [rsi + rdx + 0]
     cmp     al, 0x0
-    jmp      .end
+    je      .end
     ;cmp     al, '0'
     ;jl      .not_number
     ;cmp     al, '9'
     ;jg      .not_number
-    ;inc     rdx
-    ;jmp     .operation_number
+    inc     rdx
+    jmp     .main_loop
 .not_number:
     cmp     al, 'E'
     je      .operation_E
