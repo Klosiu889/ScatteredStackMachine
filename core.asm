@@ -12,8 +12,6 @@ core:
     ;jl      .not_number
     ;cmp     al, '9'
     ;jg      .not_number
-    inc     rdx
-    jmp     .main_loop
 .not_number:
     cmp     al, 'E'
     je      .operation_E
