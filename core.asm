@@ -6,6 +6,7 @@ core:
     xor rdx, rdx
 .main_loop:
     mov     al, byte [rsi + rdx + 0]
+    inc     rdx
     cmp     al, 0x0
     je      .end
     cmp     al, '0'
