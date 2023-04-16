@@ -5,7 +5,7 @@ section .text
 core:
     xor rdx, rdx
 .main_loop:
-    ;mov     al, byte [rsi + rdx + 0]
+    mov     al, byte [rsi + rdx + 0]
     ;cmp     al, 0x0
     jmp      .end
     ;cmp     al, '0'
