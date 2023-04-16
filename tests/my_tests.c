@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 // Ustalamy liczbę rdzeni.
-#define N 2
+#define N 1
 
 // To jest deklaracja funkcji, którą trzeba zaimplementować.
 uint64_t core(uint64_t n, char const *p);
@@ -49,7 +49,7 @@ int main() {
     static core_call_t params[N];
     static const char *computation[N] = {
             "0123456789",
-            "01"
+            "01E"
     };
     static const uint64_t result[N] = {9, 0};
 
