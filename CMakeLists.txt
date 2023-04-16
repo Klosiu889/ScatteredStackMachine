@@ -3,10 +3,12 @@ project(ScatteredStackMachine)
 
 set(CMAKE_CXX_STANDARD 14)
 
+find_package(Threads REQUIRED)
+
 enable_language(ASM_NASM)
 if (CMAKE_ASM_NASM_COMPILER_LOADED)
     set(CAN_USE_ASSEMBLER TRUE)
-    set(my_tests core.asm tests/my_tests.c)
+    set(my_tests core.asm tests/my_tests.c ${CMAKE_THREAD_LIBS_INIT}})
     #set(mimuw_tests core.asm tests/mimuw_tests.c)
     set(example_tests core.asm tests/example.c)
 endif (CMAKE_ASM_NASM_COMPILER_LOADED)
