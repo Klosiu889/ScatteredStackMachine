@@ -12,6 +12,7 @@ core:
     jl      .not_number
     cmp     al, '9'
     jg      .not_number
+    jmp     .operation_number
 .not_number:
     cmp     al, 'E'
     je      .operation_E
@@ -22,7 +23,7 @@ core:
     inc     rdx
     jmp     .main_loop
 .operation_number:
-    sub     al, '0'
+    pop     rcx
     push    rax
     jmp     .main_loop
 .operation_C:
