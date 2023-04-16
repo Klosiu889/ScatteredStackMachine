@@ -24,21 +24,21 @@ section .text
     jmp     .main_loop
 .operation_number:
     sub     al, '0'
-    push    al
+    push    rax
     jmp     .main_loop
 .operation_C:
     sub     esp, 1
     jmp     .main_loop
 .operation_D:
-    pop     al
-    push    al
-    push    al
+    pop     rax
+    push    rax
+    push    rax
     jmp     .main_loop
 .operation_E:
-    pop     al
-    pop     cl
-    push    al
-    push    cl
+    pop     rax
+    pop     rcx
+    push    rax
+    push    rcx
     jmp     .main_loop
 .end:
     ret
