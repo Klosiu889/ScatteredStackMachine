@@ -8,10 +8,10 @@ core:
     mov     al, byte [rsi + rdx + 0]
     cmp     al, 0x0
     je      .end
-    ;cmp     al, '0'
-    ;jl      .not_number
-    ;cmp     al, '9'
-    ;jg      .not_number
+    cmp     al, '0'
+    jl      .not_number
+    cmp     al, '9'
+    jg      .not_number
 .not_number:
     cmp     al, 'E'
     je      .operation_E
