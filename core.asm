@@ -23,6 +23,7 @@ core:
     je      .operation_E
     jmp     .main_loop
 .operation_number:
+    sub     al, '0'
     push    rax
     jmp     .main_loop
 .operation_C:
