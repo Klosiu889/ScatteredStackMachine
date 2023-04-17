@@ -24,6 +24,8 @@ core:
     je          .operation_minus
     cmp         al, 'n'
     je          .operation_n
+    cmp         al, 'B'
+    je          .operation_B
     cmp         al, 'C'
     je          .operation_C
     cmp         al, 'D'
@@ -50,6 +52,12 @@ core:
     jmp         .main_loop
 .operation_n:
     push        rdi
+    jmp         .main_loop
+.operation_B:
+    pop         rax
+    test        [rsp], [rsp]
+    jz          .main_loop
+    add         rdx, rax
     jmp         .main_loop
 .operation_C:
     pop         rcx
