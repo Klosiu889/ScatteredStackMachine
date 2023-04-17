@@ -28,7 +28,7 @@ core:
     push        rax
     jmp         .main_loop
 .operation_C:
-    dec         rsp
+    sub         rsp, 0x8
     jmp         .main_loop
 .operation_D:
     pop         rax
