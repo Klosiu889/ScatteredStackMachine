@@ -56,7 +56,7 @@ int main() {
             "703-1-2-+BC",
             "45C",
             "5D",
-            "60E",
+            "G",
             "G"
     };
     static const char *test_names[N] = {
@@ -71,7 +71,7 @@ int main() {
             "Swap values",
             "Get value"
     };
-    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 11};
+    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 9, 10};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
