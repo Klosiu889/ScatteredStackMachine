@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 // Ustalamy liczbę rdzeni.
-#define N 4
+#define N 8
 
 // To jest deklaracja funkcji, którą trzeba zaimplementować.
 uint64_t core(uint64_t n, char const *p);
@@ -48,12 +48,26 @@ int main() {
     static pthread_t tid[N];
     static core_call_t params[N];
     static const char *computation[N] = {
-            "12+",
-            "1-",
-            "45*",
-            "59*"
+            "76+",
+            "59*",
+            "7-",
+            "0123456789",
+            "n",
+            "45C",
+            "5D",
+            "60E"
     };
-    static const uint64_t result[N] = {3, -1, 20, 45};
+    static const char *test_names[N] = {
+            "Addition",
+            "Multiplication",
+            "Negation",
+            "Numbers",
+            "Core number",
+            "Pop value",
+            "Duplicate value",
+            "Swap values"
+    };
+    static const uint64_t result[N] = {13, 45, -7, 9, 4, 4, 5, 6};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
@@ -71,10 +85,10 @@ int main() {
 
     for (size_t n = 0; n < N; ++n) {
         if (params[n].result == result[n]) {
-            printf("\033[0;32mOK\033[0m\tCore number %zu.\n", n);
+            printf("\033[0;32mOK\033[0m\tCore number %zu on test %s.\n", n, test_names[n]);
         }
         else {
-            printf("\033[0;31mFAIL\033[0m\tCore number %zu. Got: %llu\tExpected: %llu\n", n, params[n].result, result[n]);
+            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %llu\tExpected: %llu\n", n, test_names[n], params[n].result, result[n]);
         }
     }
 }
