@@ -3,9 +3,12 @@
 #include <pthread.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 // Ustalamy liczbę rdzeni.
 #define N 10
+
+bool failed = false;
 
 // To jest deklaracja funkcji, którą trzeba zaimplementować.
 uint64_t core(uint64_t n, char const *p);
@@ -56,7 +59,7 @@ int main() {
             "703-1-2-+BC",
             "45C",
             "5D",
-            "G",
+            "60E",
             "G"
     };
     static const char *test_names[N] = {
@@ -71,7 +74,7 @@ int main() {
             "Swap values",
             "Get value"
     };
-    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 9, 10};
+    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 10};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
@@ -93,6 +96,10 @@ int main() {
         }
         else {
             printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %llu\tExpected: %llu\n", n, test_names[n], params[n].result, result[n]);
+            failed = true;
         }
     }
+
+    if (failed) return 1;
+    return 0;
 }
