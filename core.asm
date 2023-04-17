@@ -45,6 +45,3 @@ core:
     pop         rax
     push        r8
     ret
-.end2:
-    push        r8
-    ret
