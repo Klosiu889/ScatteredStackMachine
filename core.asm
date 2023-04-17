@@ -3,7 +3,7 @@ global core
 section .text
 
 core:
-    mov         r8d, [esp]
+    mov         r8, [rsp]
     xor         rdx, rdx
 .main_loop:
     mov         al, byte [rsi + rdx + 0]
@@ -45,8 +45,8 @@ core:
     jmp         .main_loop
 .end:
     pop         rax
-    push        r8d
+    push        r8
     ret
 .end2:
-    push        r8d
+    push        r8
     ret
