@@ -37,14 +37,16 @@ core:
     jmp         .main_loop
 .operation_plus:
     pop         rax
-    add         [rsp], rax
+    pop         rcx
+    add         rax, rcx
+    push        rax
     jmp         .main_loop
 .operation_times:
     pop         rax
     imul        [rsp], rax
     jmp         .main_loop
 .operation_minus:
-    neg         [rsp]
+    neg         qword [rsp]
     jmp         .main_loop
 .operation_n:
     push        rdi
