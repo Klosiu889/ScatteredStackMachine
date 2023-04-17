@@ -3,7 +3,7 @@ global core
 section .text
 
 core:
-    mov         r8d, [scp]
+    mov         r8d, [esp]
     xor         rdx, rdx
 .main_loop:
     mov         al, byte [rsi + rdx + 0]
