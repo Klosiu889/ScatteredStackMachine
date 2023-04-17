@@ -49,9 +49,9 @@ int main() {
     static core_call_t params[N];
     static const char *computation[N] = {
             "01",
-            "01"
+            "56"
     };
-    static const uint64_t result[N] = {1, 1};
+    static const uint64_t result[N] = {1, 6};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
