@@ -53,7 +53,7 @@ int main() {
             "7-",
             "0123456789",
             "n",
-            "3-1-2-+B",
+            "703-1-2-+BC",
             "45C",
             "5D",
             "60E"
@@ -69,7 +69,7 @@ int main() {
             "Duplicate value",
             "Swap values"
     };
-    static const uint64_t result[N] = {13, 45, -7, 9, 4, 0, 4, 5, 6};
+    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
