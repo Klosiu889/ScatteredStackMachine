@@ -12,8 +12,9 @@ uint64_t core(uint64_t n, char const *p);
 
 // Tę funkcję woła rdzeń.
 uint64_t get_value(uint64_t n) {
+    printf("Get value %llu\n", n);
     assert(n < N);
-    return n;
+    return n + 1;
 }
 
 // Tę funkcję woła rdzeń.
