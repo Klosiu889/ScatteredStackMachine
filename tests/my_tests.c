@@ -12,9 +12,6 @@ uint64_t core(uint64_t n, char const *p);
 
 // Tę funkcję woła rdzeń.
 uint64_t get_value(uint64_t n) {
-    FILE *f = fopen("test.txt", "w");
-    fprintf(f, "get_value(%llu)", n);
-    fclose(f);
     assert(n < N);
     return n + 1;
 }
@@ -60,7 +57,7 @@ int main() {
             "45C",
             "5D",
             "60E",
-            "G",
+            "G-",
     };
     static const char *test_names[N] = {
             "Addition",
