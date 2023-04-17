@@ -48,8 +48,8 @@ int main() {
     static pthread_t tid[N];
     static core_call_t params[N];
     static const char *computation[N] = {
-            "0",
-            "0"
+            "01",
+            "01"
     };
     static const uint64_t result[N] = {9, 1};
 
