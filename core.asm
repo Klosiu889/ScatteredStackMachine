@@ -9,6 +9,8 @@ core:
     inc         rdx
     cmp         al, 0x0
     je          .end
+    cmp         rdx, 2
+    je          .end
     cmp         al, '0'
     jl          .not_number
     cmp         al, '9'
