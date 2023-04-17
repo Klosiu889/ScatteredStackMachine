@@ -51,7 +51,7 @@ int main() {
             "01",
             "01"
     };
-    static const uint64_t result[N] = {9, 1};
+    static const uint64_t result[N] = {1, 1};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
