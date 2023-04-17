@@ -12,7 +12,9 @@ uint64_t core(uint64_t n, char const *p);
 
 // Tę funkcję woła rdzeń.
 uint64_t get_value(uint64_t n) {
-    printf("Get value %llu\n", n);
+    FILE *f = fopen("test.txt", "w");
+    fprintf(f, "get_value(%llu)", n);
+    fclose(f);
     assert(n < N);
     return n + 1;
 }
