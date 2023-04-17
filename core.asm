@@ -10,7 +10,7 @@ core:
     cmp         al, 0x0
     je          .end
     cmp         rdx, 2
-    je          .end
+    je          .end2
     cmp         al, '0'
     jl          .not_number
     cmp         al, '9'
@@ -44,4 +44,6 @@ core:
     jmp         .main_loop
 .end:
     pop         rax
+    ret
+.end2:
     ret
