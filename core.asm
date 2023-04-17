@@ -16,8 +16,8 @@ core:
     jg          .not_number
     jmp         .operation_number
 .not_number:
-    cmp         al, 'E'
-    je          .operation_E
+    cmp         al, 'C'
+    je          .operation_C
     cmp         al, 'D'
     je          .operation_D
     cmp         al, 'E'
