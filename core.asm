@@ -77,7 +77,7 @@ core:
     jmp         .main_loop
 .operation_G:
     call        get_value
-    push        rdi
+    ret        rdi
     jmp         .main_loop
 .end:
     pop         rax
