@@ -49,7 +49,7 @@ int main() {
     static core_call_t params[N];
     static const char *computation[N] = {
             "0123456789",
-            "56E"
+            "56E",
             "789"
     };
     static const uint64_t result[N] = {9, 5, 9};
