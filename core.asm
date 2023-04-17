@@ -16,6 +16,14 @@ core:
     jg          .not_number
     jmp         .operation_number
 .not_number:
+    cmp         al, '+'
+    je          .operation_plus
+    cmp         al, '*'
+    je          .operation_times
+    cmp         al, '-'
+    je          .operation_minus
+    cmp         al, 'n'
+    je          .operation_n
     cmp         al, 'C'
     je          .operation_C
     cmp         al, 'D'
@@ -26,6 +34,20 @@ core:
 .operation_number:
     sub         al, '0'
     push        rax
+    jmp         .main_loop
+.operation_plus:
+    pop         rax
+    add         [rsp], rax
+    jmp         .main_loop
+.operation_times:
+    pop         rax
+    imul        [rsp], rax
+    jmp         .main_loop
+.operation_minus:
+    neg         [rsp]
+    jmp         .main_loop
+.operation_n:
+    push        rdi
     jmp         .main_loop
 .operation_C:
     pop         rcx
