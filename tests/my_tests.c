@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 // Ustalamy liczbę rdzeni.
-#define N 9
+#define N 10
 
 // To jest deklaracja funkcji, którą trzeba zaimplementować.
 uint64_t core(uint64_t n, char const *p);
@@ -56,7 +56,8 @@ int main() {
             "703-1-2-+BC",
             "45C",
             "5D",
-            "60E"
+            "60E",
+            "G",
     };
     static const char *test_names[N] = {
             "Addition",
@@ -67,9 +68,10 @@ int main() {
             "Jump",
             "Pop value",
             "Duplicate value",
-            "Swap values"
+            "Swap values",
+            "Get value"
     };
-    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6};
+    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 11};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;

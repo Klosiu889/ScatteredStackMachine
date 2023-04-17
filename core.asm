@@ -1,4 +1,6 @@
 global core
+extern get_value
+extern put_value
 
 section .text
 
@@ -72,6 +74,10 @@ core:
     pop         rcx
     push        rax
     push        rcx
+    jmp         .main_loop
+.operation_G:
+    call        get_value
+    push        rax
     jmp         .main_loop
 .end:
     pop         rax
