@@ -66,6 +66,7 @@ core:
     cmp         qword [rsp], 0x0
     jz          .main_loop
     add         rbx, rax
+    dec         rbx
     mov         rdi, r12
     mov         rsi, rax
     mov         rdx, rbx
