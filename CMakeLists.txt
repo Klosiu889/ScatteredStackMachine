@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Threads REQUIRED)
 
-set(THREADS_NUM 12)
+set(THREADS_NUM 10)
 
 enable_language(ASM_NASM)
 if (CMAKE_ASM_NASM_COMPILER_LOADED)
