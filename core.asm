@@ -1,5 +1,6 @@
 extern get_value
 extern put_value
+extern print_register
 
 section .text
 
@@ -14,10 +15,9 @@ core:
     mov         r12, rdi
     mov         r13, rsi
     xor         rbx, rbx
-    dec         rbx
 .main_loop:
-    inc         rbx
     mov         al, byte [r13 + rbx + 0]
+    inc         rbx
     cmp         al, 0x0
     je          .end
     cmp         al, '+'
@@ -66,6 +66,9 @@ core:
     cmp         qword [rsp], 0x0
     jz          .main_loop
     add         rbx, rax
+    mov         rdi, r12
+    mov         rsi, rbx
+    call        print_register
     jmp         .main_loop
 .operation_C:
     pop         rcx
