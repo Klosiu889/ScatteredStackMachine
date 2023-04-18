@@ -32,6 +32,12 @@ typedef struct {
     char const *p;
 } core_call_t;
 
+typedef struct {
+    char* value;
+    char* name;
+    uint64_t result;
+} test_t;
+
 // Wszystkie rdzenie powinny wystartować równocześnie.
 static volatile int wait = 0;
 
@@ -78,10 +84,24 @@ int main() {
     };
     static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 10, 8};
 
+    static const test_t tests[N] = {
+            {.value = "76+", .name = "Addition", .result = 13},
+            {.value = "59*", .name = "Multiplication", .result = 45},
+            {.value = "7-", .name = "Negation", .result = -7},
+            {.value = "0123456789", .name = "Numbers", .result = 9},
+            {.value = "nnn2n", .name = "Core number", .result = 4},
+            {.value = "703-1-2-+BC", .name = "Jump", .result = 7},
+            {.value = "45C", .name = "Pop value", .result = 4},
+            {.value = "5D", .name = "Duplicate value", .result = 5},
+            {.value = "60E", .name = "Swap values", .result = 6},
+            {.value = "G", .name = "Get value", .result = 10},
+            {.value = "84n+P", .name = "Put value", .result = 8}
+    };
+
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
         params[n].result = 0;
-        params[n].p = computation[n];
+        params[n].p = tests[n].value;
     }
 
     for (size_t n = 0; n < N; ++n)
@@ -93,11 +113,11 @@ int main() {
         assert(0 == pthread_join(tid[n], NULL));
 
     for (size_t n = 0; n < N; ++n) {
-        if (params[n].result == result[n]) {
-            printf("\033[0;32mOK\033[0m\tCore number %zu on test %s.\n", n, test_names[n]);
+        if (params[n].result == tests[n].result) {
+            printf("\033[0;32mOK\033[0m\tCore number %zu on test %s.\n", n, tests[n].name);
         }
         else {
-            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %llu\tExpected: %llu\n", n, test_names[n], params[n].result, result[n]);
+            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %llu\tExpected: %llu\n", n, tests[n].name, params[n].result, tests[n].result);
             failed = true;
         }
     }
