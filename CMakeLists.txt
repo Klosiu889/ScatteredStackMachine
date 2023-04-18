@@ -10,7 +10,7 @@ if (CMAKE_ASM_NASM_COMPILER_LOADED)
     set(CAN_USE_ASSEMBLER TRUE)
     set(my_tests core.asm tests/my_tests.c)
     #set(mimuw_tests core.asm tests/mimuw_tests.c)
-    set(example_tests core.asm tests/example.c)
+    set(example_tests core.asm macro_print.asm tests/example.c)
 endif (CMAKE_ASM_NASM_COMPILER_LOADED)
 
 add_executable(my_tests ${my_tests})
