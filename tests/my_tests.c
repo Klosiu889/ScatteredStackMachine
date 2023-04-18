@@ -61,7 +61,7 @@ int main() {
             "5D",
             "60E",
             "G",
-            "83n+P"
+            "84n+P"
     };
     static const char *test_names[N] = {
             "Addition",
