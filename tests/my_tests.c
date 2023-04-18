@@ -5,9 +5,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// Ustalamy liczbę rdzeni.
-#define N 1
-
 bool failed = false;
 
 // To jest deklaracja funkcji, którą trzeba zaimplementować.
