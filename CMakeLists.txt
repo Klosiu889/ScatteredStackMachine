@@ -9,7 +9,7 @@ enable_language(ASM_NASM)
 if (CMAKE_ASM_NASM_COMPILER_LOADED)
     set(CAN_USE_ASSEMBLER TRUE)
     set(my_tests core.asm tests/my_tests.c)
-    set_source_files_properties(core.asm PROPERTIES COMPILE_FLAGS "-DN=2")
+    set_source_files_properties(core.asm PROPERTIES COMPILE_FLAGS "-DN=12")
 endif (CMAKE_ASM_NASM_COMPILER_LOADED)
 
 add_executable(my_tests ${my_tests})
