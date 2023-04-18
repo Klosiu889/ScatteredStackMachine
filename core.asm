@@ -1,5 +1,3 @@
-%include "macro_print.asm"
-
 extern get_value
 extern put_value
 
