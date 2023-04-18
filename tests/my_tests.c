@@ -25,7 +25,7 @@ void put_value(uint64_t n, uint64_t v) {
     assert(v == n + 4);
 }
 
-void print_register(uint64_t n, uint64_t v1, uint64_t v2) {
+void print_register(uint64_t n, int64_t v1, int64_t v2) {
     printf("Core %llu printed value %llu and %llu\n", n, v1, v2);
 }
 
