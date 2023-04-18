@@ -11,6 +11,7 @@ function(add_test_executable name)
         set(CAN_USE_ASSEMBLER TRUE)
         set(name core.asm tests/name.c)
     endif(CMAKE_ASM_NASM_COMPILER_LOADED)
+    add_executable(${name} ${name})
 endfunction()
 
 add_test_executable(my_tests)
