@@ -56,33 +56,6 @@ static void * core_thread(void *params) {
 int main() {
     static pthread_t tid[N];
     static core_call_t params[N];
-    static const char *computation[N] = {
-            "76+",
-            "59*",
-            "7-",
-            "0123456789",
-            "nnn2n",
-            "703-1-2-+BC",
-            "45C",
-            "5D",
-            "60E",
-            "G",
-            "84n+P"
-    };
-    static const char *test_names[N] = {
-            "Addition",
-            "Multiplication",
-            "Negation",
-            "Numbers",
-            "Core number",
-            "Jump",
-            "Pop computation",
-            "Duplicate computation",
-            "Swap values",
-            "Get computation",
-            "Put computation"
-    };
-    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 10, 8};
 
     static const test_t tests[N] = {
             {.computation = "76+", .name = "Addition", .result = 13},
