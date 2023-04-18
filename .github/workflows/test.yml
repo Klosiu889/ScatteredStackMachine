@@ -8,7 +8,7 @@ jobs:
   Test:
 
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.head_commit.message, '#TEST') }}
+    if: ${{ contains(github.event.head_commit.message, '[TEST]') }}
     
     steps:
       - uses: ilammy/setup-nasm@v1
