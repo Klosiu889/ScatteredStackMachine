@@ -2,8 +2,9 @@ extern get_value
 extern put_value
 extern print_register
 
+%define N
+
 section .data
-    N dq 0x0
     values times N dq N
     receivers times N dq N
 
