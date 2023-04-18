@@ -19,12 +19,6 @@ core:
     inc         rbx
     cmp         al, 0x0
     je          .end
-    cmp         al, '0'
-    jl          .not_number
-    cmp         al, '9'
-    jg          .not_number
-    jmp         .operation_number
-.not_number:
     cmp         al, '+'
     je          .operation_plus
     cmp         al, '*'
@@ -43,7 +37,9 @@ core:
     je          .operation_E
     cmp         al, 'G'
     je          .operation_G
-    jmp         .main_loop
+    cmp         al, 'P'
+    je          .operation_P
+    jmp         .operation_number
 .operation_number:
     sub         al, '0'
     push        rax
@@ -88,6 +84,11 @@ core:
     mov         rdi, r12
     call        get_value
     push        rax
+    jmp         .main_loop
+.operation_P:
+    pop         rsi
+    mov         rdi, r12
+    call        put_value
     jmp         .main_loop
 .end:
     pop         rax
