@@ -14,9 +14,10 @@ core:
     mov         r12, rdi
     mov         r13, rsi
     xor         rbx, rbx
+    dec         rbx
 .main_loop:
-    mov         al, byte [r13 + rbx + 0]
     inc         rbx
+    mov         al, byte [r13 + rbx + 0]
     cmp         al, 0x0
     je          .end
     cmp         al, '+'
@@ -65,8 +66,6 @@ core:
     cmp         qword [rsp], 0x0
     jz          .main_loop
     add         rbx, rax
-    push rbx
-    jmp .end
     jmp         .main_loop
 .operation_C:
     pop         rcx
