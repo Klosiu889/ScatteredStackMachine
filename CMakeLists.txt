@@ -18,3 +18,7 @@ add_executable(my_tests ${my_tests})
 add_executable(example_tests ${example_tests})
 
 target_link_libraries(my_tests pthread)
+target_compile_options(my_tests PRIVATE
+        $<$<COMPILE_LANGUAGE:C>: -Wall -Wextra -std=c17 -O2>
+        $<$<COMPILE_LANGUAGE:ASSEMBLY>:-DN=12 -f elf64 -w+all -w+error>
+        )

@@ -2,6 +2,10 @@ extern get_value
 extern put_value
 extern print_register
 
+section .data
+    values times N dq N
+    receivers times N dq N
+
 section .text
 
 global core
