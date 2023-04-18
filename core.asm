@@ -41,6 +41,8 @@ core:
     je          .operation_D
     cmp         al, 'E'
     je          .operation_E
+    cmp         al, 'G'
+    je          .operation_G
     jmp         .main_loop
 .operation_number:
     sub         al, '0'
@@ -84,8 +86,7 @@ core:
     jmp         .main_loop
 .operation_G:
     mov         rdi, r12
-    push    r12
-    jmp .end
+    call        get_value
     push        rax
     jmp         .main_loop
 .end:
