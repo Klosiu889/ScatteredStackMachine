@@ -84,7 +84,7 @@ core:
     jmp         .main_loop
 .operation_G:
     mov         rdi, r12
-    push    rdi
+    push    r12
     jmp .end
     push        rax
     jmp         .main_loop
