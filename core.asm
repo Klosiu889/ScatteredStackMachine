@@ -64,7 +64,7 @@ core:
     pop         rax
     cmp         qword [rsp], 0x0
     jz          .main_loop
-    ret
+    jmp .end
     add         rbx, rax
     jmp         .main_loop
 .operation_C:
