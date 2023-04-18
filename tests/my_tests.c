@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 // Ustalamy liczbę rdzeni.
-#define N 10
+#define N 11
 
 bool failed = false;
 
@@ -60,7 +60,8 @@ int main() {
             "45C",
             "5D",
             "60E",
-            "G"
+            "G",
+            "84n+P"
     };
     static const char *test_names[N] = {
             "Addition",
@@ -72,9 +73,10 @@ int main() {
             "Pop value",
             "Duplicate value",
             "Swap values",
-            "Get value"
+            "Get value",
+            "Put value"
     };
-    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 10};
+    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 10, 8};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
