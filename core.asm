@@ -5,11 +5,17 @@ extern put_value
 section .text
 
 core:
-    mov         r8, [rsp]
-    xor         rdx, rdx
+    push        rbx
+    push        r12
+    push        r13
+    push        rbp
+    mov         rbp, rsp
+    mov         r12, rdi
+    mov         r13, rsi
+    xor         rbx, rbx
 .main_loop:
-    mov         al, byte [rsi + rdx + 0]
-    inc         rdx
+    mov         al, byte [r13 + rbx + 0]
+    inc         rbx
     cmp         al, 0x0
     je          .end
     cmp         al, '0'
@@ -53,13 +59,13 @@ core:
     neg         qword [rsp]
     jmp         .main_loop
 .operation_n:
-    push        rdi
+    push        r12
     jmp         .main_loop
 .operation_B:
     pop         rax
     cmp         qword [rsp], 0x0
     jz          .main_loop
-    add         rdx, rax
+    add         rbx, rax
     jmp         .main_loop
 .operation_C:
     pop         rcx
@@ -76,10 +82,15 @@ core:
     push        rcx
     jmp         .main_loop
 .operation_G:
+    mov         rdi, r12
     call        get_value
     push        rax
     jmp         .main_loop
 .end:
     pop         rax
-    push        r8
+    mov         rsp, rbp
+    pop         rbp
+    pop         r13
+    pop         r12
+    pop         rbx
     ret
