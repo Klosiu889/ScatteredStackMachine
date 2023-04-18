@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 // Ustalamy liczbę rdzeni.
-#define N 11
+#define N 12
 
 bool failed = false;
 
@@ -64,10 +64,11 @@ int main() {
             {.computation = "0123456789", .name = "Numbers", .result = 9},
             {.computation = "nnn2n", .name = "Core number", .result = 4},
             {.computation = "703-1-2-+B", .name = "Jump", .result = 7},
+            {.computation = "41B", .name = "Jump 2", .result = 4},
             {.computation = "45C", .name = "Pop computation", .result = 4},
             {.computation = "5D", .name = "Duplicate computation", .result = 5},
             {.computation = "60E", .name = "Swap values", .result = 6},
-            {.computation = "G", .name = "Get computation", .result = 10},
+            {.computation = "G", .name = "Get computation", .result = 11},
             {.computation = "84n+P", .name = "Put computation", .result = 8}
     };
 
