@@ -5,14 +5,14 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Threads REQUIRED)
 
-function(add_test_executable name)
+function(add_test_executable test_file)
     enable_language(ASM_NASM)
     if(CMAKE_ASM_NASM_COMPILER_LOADED)
         set(CAN_USE_ASSEMBLER TRUE)
-        set(name core.asm tests/${name}.c)
+        set(my_test "core.asm" "tests/${test_file}.c")
     endif(CMAKE_ASM_NASM_COMPILER_LOADED)
-    add_executable(${name} ${name})
-    targart_link_libraries(${name} pthread)
+    add_executable(${test_file} ${my_test})
+    target_link_libraries(${test_file} pthread)
 endfunction()
 
 add_test_executable(my_tests)
