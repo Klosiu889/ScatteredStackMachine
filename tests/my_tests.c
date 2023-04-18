@@ -25,6 +25,7 @@ void put_value(uint64_t n, uint64_t v) {
     assert(v == n + 4);
 }
 
+// Tę funkcję woła rdzeń.
 void print_register(uint64_t n, uint64_t v) {
     printf("Core %llu printed value %llu\n", n, v);
 }
