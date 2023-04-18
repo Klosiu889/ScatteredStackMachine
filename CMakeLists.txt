@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Threads REQUIRED)
 
+set(NASM_FLAGS "-DN=2 -f elf64 -w+all -w+error")
+
 enable_language(ASM_NASM)
 if (CMAKE_ASM_NASM_COMPILER_LOADED)
     set(CAN_USE_ASSEMBLER TRUE)
