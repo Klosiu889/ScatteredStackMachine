@@ -84,7 +84,8 @@ core:
     jmp         .main_loop
 .operation_G:
     mov         rdi, r12
-    call        get_value
+    push    rdi
+    jmp .end
     push        rax
     jmp         .main_loop
 .end:
