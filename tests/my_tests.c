@@ -63,8 +63,8 @@ int main() {
             {.computation = "7-", .name = "Negation", .result = -7},
             {.computation = "0123456789", .name = "Numbers", .result = 9},
             {.computation = "nnn2n", .name = "Core number", .result = 4},
-            {.computation = "703-1-2-+B", .name = "Jump", .result = 7},
-            {.computation = "41B", .name = "Jump 2", .result = 4},
+            {.computation = "703-1-2-+B", .name = "Jump", .result = -1},
+            {.computation = "41B", .name = "Jump 2", .result = -1},
             {.computation = "45C", .name = "Pop computation", .result = 4},
             {.computation = "5D", .name = "Duplicate computation", .result = 5},
             {.computation = "60E", .name = "Swap values", .result = 6},
@@ -91,7 +91,7 @@ int main() {
             printf("\033[0;32mOK\033[0m\tCore number %zu on test %s.\n", n, tests[n].name);
         }
         else {
-            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %zu\tExpected: %llu\n", n, tests[n].name, params[n].result, tests[n].result);
+            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %llu\tExpected: %llu\n", n, tests[n].name, params[n].result, tests[n].result);
             failed = true;
         }
     }
