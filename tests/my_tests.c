@@ -25,8 +25,8 @@ void put_value(uint64_t n, uint64_t v) {
     assert(v == n + 4);
 }
 
-void print_register(uint64_t n, uint64_t v) {
-    printf("Core %llu printed value %llu\n", n, v);
+void print_register(uint64_t n, uint64_t v1, uint64_t v2) {
+    printf("Core %llu printed value %llu and %llu\n", n, v1, v2);
 }
 
 // To jest struktura służąca do przekazania do wątku parametrów wywołania

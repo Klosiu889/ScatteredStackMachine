@@ -67,7 +67,8 @@ core:
     jz          .main_loop
     add         rbx, rax
     mov         rdi, r12
-    mov         rsi, rbx
+    mov         rsi, rax
+    mov         rdx, rbx
     call        print_register
     jmp         .main_loop
 .operation_C:
