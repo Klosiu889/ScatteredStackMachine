@@ -82,13 +82,17 @@ core:
     jmp         .main_loop
 .operation_G:
     mov         rdi, r12
+    align       16
     call        get_value
     push        rax
     jmp         .main_loop
 .operation_P:
     pop         rsi
     mov         rdi, r12
+    align       16
     call        put_value
+    jmp         .main_loop
+.operation_S:
     jmp         .main_loop
 .end:
     pop         rax
