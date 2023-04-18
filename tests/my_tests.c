@@ -78,7 +78,7 @@ int main() {
             "Get value",
             "Put value"
     };
-    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 11, 8};
+    static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 4, 5, 6, 11, 8};
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
