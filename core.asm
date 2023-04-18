@@ -3,6 +3,7 @@ extern put_value
 extern print_register
 
 section .data
+    N dq 0x0
     values times N dq N
     receivers times N dq N
 
