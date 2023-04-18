@@ -33,7 +33,7 @@ typedef struct {
 } core_call_t;
 
 typedef struct {
-    char* value;
+    char* computation;
     char* name;
     uint64_t result;
 } test_t;
@@ -76,32 +76,32 @@ int main() {
             "Numbers",
             "Core number",
             "Jump",
-            "Pop value",
-            "Duplicate value",
+            "Pop computation",
+            "Duplicate computation",
             "Swap values",
-            "Get value",
-            "Put value"
+            "Get computation",
+            "Put computation"
     };
     static const uint64_t result[N] = {13, 45, -7, 9, 4, 7, 4, 5, 6, 10, 8};
 
     static const test_t tests[N] = {
-            {.value = "76+", .name = "Addition", .result = 13},
-            {.value = "59*", .name = "Multiplication", .result = 45},
-            {.value = "7-", .name = "Negation", .result = -7},
-            {.value = "0123456789", .name = "Numbers", .result = 9},
-            {.value = "nnn2n", .name = "Core number", .result = 4},
-            {.value = "703-1-2-+BC", .name = "Jump", .result = 7},
-            {.value = "45C", .name = "Pop value", .result = 4},
-            {.value = "5D", .name = "Duplicate value", .result = 5},
-            {.value = "60E", .name = "Swap values", .result = 6},
-            {.value = "G", .name = "Get value", .result = 10},
-            {.value = "84n+P", .name = "Put value", .result = 8}
+            {.computation = "76+", .name = "Addition", .result = 13},
+            {.computation = "59*", .name = "Multiplication", .result = 45},
+            {.computation = "7-", .name = "Negation", .result = -7},
+            {.computation = "0123456789", .name = "Numbers", .result = 9},
+            {.computation = "nnn2n", .name = "Core number", .result = 4},
+            {.computation = "703-1-2-+BC", .name = "Jump", .result = 7},
+            {.computation = "45C", .name = "Pop computation", .result = 4},
+            {.computation = "5D", .name = "Duplicate computation", .result = 5},
+            {.computation = "60E", .name = "Swap values", .result = 6},
+            {.computation = "G", .name = "Get computation", .result = 10},
+            {.computation = "84n+P", .name = "Put computation", .result = 8}
     };
 
     for (size_t n = 0; n < N; ++n) {
         params[n].n = n;
         params[n].result = 0;
-        params[n].p = tests[n].value;
+        params[n].p = tests[n].computation;
     }
 
     for (size_t n = 0; n < N; ++n)
