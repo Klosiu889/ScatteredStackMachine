@@ -63,7 +63,7 @@ int main() {
             {.computation = "7-", .name = "Negation", .result = -7},
             {.computation = "0123456789", .name = "Numbers", .result = 9},
             {.computation = "nnn2n", .name = "Core number", .result = 4},
-            {.computation = "703-1-2-+BC", .name = "Jump", .result = 7},
+            {.computation = "73-1-2-+BC", .name = "Jump", .result = 7},
             {.computation = "45C", .name = "Pop computation", .result = 4},
             {.computation = "5D", .name = "Duplicate computation", .result = 5},
             {.computation = "60E", .name = "Swap values", .result = 6},
