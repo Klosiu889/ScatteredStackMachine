@@ -26,7 +26,7 @@ void put_value(uint64_t n, uint64_t v) {
 }
 
 void print_register(uint64_t n, uint64_t v) {
-    printf("Core %llu printed value %llu", n, v);
+    printf("Core %llu printed value %llu\n", n, v);
 }
 
 // To jest struktura służąca do przekazania do wątku parametrów wywołania
