@@ -12,6 +12,7 @@ function(add_test_executable name)
         set(name core.asm tests/${name}.c)
     endif(CMAKE_ASM_NASM_COMPILER_LOADED)
     add_executable(${name} ${name})
+    targart_link_libraries(${name} pthread)
 endfunction()
 
 add_test_executable(my_tests)
