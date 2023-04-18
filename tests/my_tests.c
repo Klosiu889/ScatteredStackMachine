@@ -91,7 +91,7 @@ int main() {
             printf("\033[0;32mOK\033[0m\tCore number %zu on test %s.\n", n, tests[n].name);
         }
         else {
-            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %llu\tExpected: %llu\n", n, tests[n].name, params[n].result, tests[n].result);
+            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %zu\tExpected: %llu\n", n, tests[n].name, params[n].result, tests[n].result);
             failed = true;
         }
     }
