@@ -1,8 +1,9 @@
-global core
 extern get_value
 extern put_value
 
 section .text
+
+global core
 
 core:
     push        rbx
