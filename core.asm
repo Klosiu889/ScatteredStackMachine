@@ -22,9 +22,6 @@ core:
     xor         rbx, rbx
 .main_loop:
     mov         al, byte [r13 + rbx + 0]
-    mov         rdi, r12
-    mov         rsi, rax
-    call        print_register
     inc         rbx
     cmp         al, 0x0
     je          .end
