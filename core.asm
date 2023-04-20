@@ -100,7 +100,9 @@ core:
 .operation_S:
     pop         rax
     pop         rcx
-    xchg        qword [rel values + rax * 8], rcx
+    mov         rdi, values
+    mov         rsi, receivers
+    mov         [rdi + r12 * 8], rcx
     jmp         .main_loop
 .end:
     pop         rax
