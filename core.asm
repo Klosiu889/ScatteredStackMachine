@@ -61,6 +61,7 @@ core:
     jmp         .operation_number
 .operation_number:
     mov         rdi, r12
+    mov         rsi, 0x45
     mov         rdx, rax
     sub         al, '0'
     push        rax
