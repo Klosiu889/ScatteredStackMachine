@@ -109,9 +109,12 @@ core:
 .spin_lock_value:
     cmp         [rsi + rax * 8], r12
     jne         .spin_lock_value
-    mov         rsi, [rdi + rax * 8]
-    mov         rdi, r12
-    call        print_register
+    mov         rcx, [rdi + rax * 8]
+    mov         [rsi + rax * 8], N
+.spin_lock_receiver:
+    cmp         [rsi + r12 * 8], N
+    jne         .spin_lock_receiver
+    push        rcx
     jmp         .main_loop
 .end:
     pop         rax
