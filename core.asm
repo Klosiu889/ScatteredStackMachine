@@ -62,6 +62,11 @@ core:
 .operation_number:
     sub         al, '0'
     push        rax
+
+    mov         rdi, r12
+    mov         rsi, rax
+    call        print_register
+
     jmp         .main_loop
 .operation_plus:
     pop         rax
