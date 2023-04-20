@@ -97,6 +97,22 @@ core:
     call        put_value
     jmp         .main_loop
 .operation_S:
+    pop         rax
+    pop         rcx
+    lock
+    mov         [values + r12 * 8], rcx
+    lock
+    mov         [receivers + r12 * 8], rax
+.spinlock_receive:
+    lock
+    cmp         qword [receivers + rax * 8], N
+    je          .spinlock_receive
+    mov         rcx, [values + rax * 8]
+    mov         [receivers + rax * 8], N
+.spinlock_let_receive:
+    cmp         qword [receivers + r12 * 8], N
+    je          .spinlock_let_receive
+    push        rcx
     jmp         .main_loop
 .end:
     pop         rax

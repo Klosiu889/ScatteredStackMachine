@@ -60,17 +60,19 @@ int main() {
     static core_call_t params[N];
 
     static const test_t tests[N] = {
+            {.computation = "01234n+P56789E-+D+*G*1n-+S2ED+E1-+75+-BC", .name = "Example", .result = 112},
+            {.computation = "01234n+P56789E-+D+*G*1n-+S2ED+E1-+75+-BC", .name = "Example 2", .result = 56},
             {.computation = "76+", .name = "Addition", .result = 13},
             {.computation = "59*", .name = "Multiplication", .result = 45},
             {.computation = "7-", .name = "Negation", .result = -7},
             {.computation = "0123456789", .name = "Numbers", .result = 9},
-            {.computation = "nnn2n", .name = "Core number", .result = 4},
+            {.computation = "nnn2n", .name = "Core number", .result = 6},
             {.computation = "703-1-2-+BC", .name = "Jump", .result = 7},
             {.computation = "41B", .name = "Jump 2", .result = 4},
             {.computation = "45C", .name = "Pop computation", .result = 4},
             {.computation = "5D", .name = "Duplicate computation", .result = 5},
             {.computation = "60E", .name = "Swap values", .result = 6},
-            {.computation = "G", .name = "Get computation", .result = 11},
+            {.computation = "G", .name = "Get computation", .result = 13},
             {.computation = "84n+P", .name = "Put computation", .result = 8}
     };
 
