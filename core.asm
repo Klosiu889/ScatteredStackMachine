@@ -109,7 +109,7 @@ core:
 .spin_lock_value:
     cmp         qword [rsi + rax * 8], r12
     ;je          .spin_lock_value
-    mov         qword [rdi + rax * 8], rcx
+    mov         rcx, qword [rdi + rax * 8]
     mov         qword [rsi + rax * 8], N
 .spin_lock_receiver:
     cmp         qword [rsi + r12 * 8], N
