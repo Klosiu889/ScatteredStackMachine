@@ -73,7 +73,8 @@ int main() {
             {.computation = "5D", .name = "Duplicate computation", .result = 5},
             {.computation = "60E", .name = "Swap values", .result = 6},
             {.computation = "G", .name = "Get computation", .result = 13},
-            {.computation = "84n+P", .name = "Put computation", .result = 8}
+            {.computation = "84n+P", .name = "Put computation", .result = 8},
+            {.computation = "111", .name = "Placeholder", .result = 1}
     };
 
     for (size_t n = 0; n < N; ++n) {
