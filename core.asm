@@ -3,6 +3,7 @@ extern put_value
 extern print_register
 
 section .data
+    align 4
     values: times N dq N
     receivers: times N dq N
 
