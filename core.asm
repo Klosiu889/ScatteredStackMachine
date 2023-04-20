@@ -103,6 +103,12 @@ core:
     mov         rdi, values
     mov         rsi, receivers
     mov         [rdi + r12 * 8], rcx
+    mov         [rsi + r12 * 8], rax
+.spin_lock_value:
+    cmp         qword [rsi + rax * 8], r12
+    je          .spin_lock_value
+    mov         qword [rdi + rax * 8], rcx
+    mov         qword [rsi + rax * 8], N
     jmp         .main_loop
 .end:
     pop         rax
