@@ -106,8 +106,9 @@ core:
     lea         rsi, [rel receivers]
     mov         [rdi + r12 * 8], rcx
     mov         [rsi + r12 * 8], rax
+    mov         rdi, rdx
     mov         rdi, r12
-    mov         rsi, [rsi + r12 * 8]
+    mov         rsi, [rdx + r12 * 8]
     call        print_register
     jmp         .main_loop
 .end:
