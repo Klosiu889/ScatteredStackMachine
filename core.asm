@@ -16,6 +16,7 @@ core:
     push        r12
     push        r13
     push        r14
+    push        r15
     push        rbp
     mov         rbp, rsp
     mov         r12, rdi
@@ -28,13 +29,11 @@ core:
     cmp         r12, 0x0
     jnz         .continue
     mov         rdx, [rsp]
-    push        r14
     mov         rdi, r12
     mov         rsi, r14
     call        print_register
-    pop         r14
-
 .continue:
+
     cmp         r14b, 0x0
     je          .end
     cmp         r14b, '+'
@@ -61,13 +60,8 @@ core:
     je          .operation_S
     jmp         .operation_number
 .operation_number:
-    mov         rdi, 0x45
-    mov         rdx, r14
     sub         r14b, '0'
     push        r14
-
-    call        print_register
-
     jmp         .main_loop
 .operation_plus:
     pop         r14
@@ -75,8 +69,8 @@ core:
     jmp         .main_loop
 .operation_times:
     pop         r14
-    pop         rcx
-    imul        r14, rcx
+    pop         r15
+    imul        r14, r15
     push        r14
     jmp         .main_loop
 .operation_minus:
@@ -92,7 +86,7 @@ core:
     add         rbx, r14
     jmp         .main_loop
 .operation_C:
-    pop         rcx
+    pop         r15
     jmp         .main_loop
 .operation_D:
     pop         r14
@@ -101,9 +95,9 @@ core:
     jmp         .main_loop
 .operation_E:
     pop         r14
-    pop         rcx
+    pop         r15
     push        r14
-    push        rcx
+    push        r15
     jmp         .main_loop
 .operation_G:
     mov         rdi, r12
@@ -117,29 +111,30 @@ core:
     jmp         .main_loop
 .operation_S:
     pop         r14
-    pop         rcx
+    pop         r15
     push        0x1C
     jmp         .main_loop
     pop         r14
-    pop         rcx
+    pop         r15
     lea         rdi, [rel values]
     lea         rsi, [rel receivers]
-    mov         [rdi + r12 * 8], rcx
+    mov         [rdi + r12 * 8], r15
     mov         [rsi + r12 * 8], r14
 .spin_lock_value:
     cmp         [rsi + r14 * 8], r12
     jne         .spin_lock_value
-    mov         rcx, [rdi + r14 * 8]
+    mov         r15, [rdi + r14 * 8]
     mov         qword [rsi + r14 * 8], N
 .spin_lock_receiver:
     cmp         qword [rsi + r12 * 8], N
     jne         .spin_lock_receiver
-    push        rcx
+    push        r15
     jmp         .main_loop
 .end:
     pop         r14
     mov         rsp, rbp
     pop         rbp
+    pop         r15
     pop         r14
     pop         r13
     pop         r12
