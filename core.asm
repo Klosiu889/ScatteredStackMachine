@@ -111,6 +111,9 @@ core:
     je          .spin_lock_value
     mov         qword [rdi + rax * 8], rcx
     mov         qword [rsi + rax * 8], N
+.spin_lock_receiver:
+    cmp         qword [rsi + r12 * 8], N
+    jne         .spin_lock_receiver
     jmp         .main_loop
 .end:
     pop         rax
