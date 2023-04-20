@@ -109,6 +109,8 @@ core:
     call        put_value
     jmp         .main_loop
 .operation_S:
+    push        0x28
+    jmp         .main_loop
     pop         rax
     pop         rcx
     lea         rdi, [rel values]
