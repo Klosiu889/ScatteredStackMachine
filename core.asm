@@ -106,9 +106,9 @@ core:
     lea         rsi, [rel receivers]
     mov         [rdi + r12 * 8], rcx
     mov         [rsi + r12 * 8], rax
-    mov         rdx, rdi
-    mov         rdi, r12
-    mov         rsi, [rdx + r12 * 8]
+.spin_lock_value:
+    cmp         [rsi + rax * 8], r12
+    jne         .spin_lock_value
     call        print_register
     jmp         .main_loop
 .end:
