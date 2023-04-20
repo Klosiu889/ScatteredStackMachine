@@ -24,8 +24,8 @@ core:
     cmp         r12, 0x0
     jnz          .continue
     mov         rdi, r12
-    ;mov         sil, byte [r13 + rbx + 0]
-    mov         rdx, [rsi]
+    mov         sil, byte [r13 + rbx + 0]
+    mov         rdx, [rsp]
     call        print_register
 .continue:
     mov         al, byte [r13 + rbx + 0]
