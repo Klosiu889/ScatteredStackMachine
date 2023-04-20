@@ -22,7 +22,7 @@ core:
     mov         r13, rsi
     xor         rbx, rbx
 .main_loop:
-    mov         r14d, byte [r13 + rbx + 0]
+    mov         r14b, byte [r13 + rbx + 0]
     inc         rbx
 
     cmp         r12, 0x0
@@ -35,35 +35,35 @@ core:
     pop         r14
 
 .continue:
-    cmp         r14d, 0x0
+    cmp         r14b, 0x0
     je          .end
-    cmp         r14d, '+'
+    cmp         r14b, '+'
     je          .operation_plus
-    cmp         r14d, '*'
+    cmp         r14b, '*'
     je          .operation_times
-    cmp         r14d, '-'
+    cmp         r14b, '-'
     je          .operation_minus
-    cmp         r14d, 'n'
+    cmp         r14b, 'n'
     je          .operation_n
-    cmp         r14d, 'B'
+    cmp         r14b, 'B'
     je          .operation_B
-    cmp         r14d, 'C'
+    cmp         r14b, 'C'
     je          .operation_C
-    cmp         r14d, 'D'
+    cmp         r14b, 'D'
     je          .operation_D
-    cmp         r14d, 'E'
+    cmp         r14b, 'E'
     je          .operation_E
-    cmp         r14d, 'G'
+    cmp         r14b, 'G'
     je          .operation_G
-    cmp         r14d, 'P'
+    cmp         r14b, 'P'
     je          .operation_P
-    cmp         r14d, 'S'
+    cmp         r14b, 'S'
     je          .operation_S
     jmp         .operation_number
 .operation_number:
     mov         rdi, 0x45
     mov         rdx, r14
-    sub         r14d, '0'
+    sub         r14b, '0'
     push        r14
 
     call        print_register
