@@ -101,13 +101,13 @@ core:
     pop         rcx
     mov         rdi, rax
     mov         rsi, rcx
-    mov         [values + r12 * 8], rsi
-    mov         [receivers + r12 * 8], rdi
+    xchg        [values + r12 * 8], rsi
+    xchg        [receivers + r12 * 8], rdi
 .spinlock_receive:
     cmp         qword [receivers + rdi * 8], N
     je          .spinlock_receive
-    mov         rsi, [values + rdi * 8]
-    mov         qword [receivers + rdi * 8], N
+    xchg        rsi, [values + rdi * 8]
+    xchg        qword [receivers + rdi * 8], N
 .spinlock_let_receive:
     cmp         qword [receivers + r12 * 8], N
     je          .spinlock_let_receive
