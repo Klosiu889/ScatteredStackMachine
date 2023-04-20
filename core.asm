@@ -102,8 +102,8 @@ core:
 .operation_S:
     pop         rax
     pop         rcx
-    mov         rdi, values
-    mov         rsi, receivers
+    lea         rdi, [rel values]
+    lea         rsi, [rel receivers]
     mov         [rdi + r12 * 8], rcx
     mov         [rsi + r12 * 8], rax
 .spin_lock_value:
