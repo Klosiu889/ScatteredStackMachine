@@ -112,7 +112,7 @@ core:
 .spinlock_let_receive:
     cmp         qword [rel receivers + r12 * 8], N
     je          .spinlock_let_receive
-    push        rsi
+    ;push        rsi
     jmp         .main_loop
 .end:
     pop         rax
