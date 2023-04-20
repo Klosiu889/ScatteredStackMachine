@@ -23,7 +23,7 @@ core:
 .main_loop:
     mov         al, byte [r13 + rbx + 0]
     inc         rbx
-    cmp         r12, 0x8
+    cmp         r12, 0x7
     jnz         .continue
     push        rax
     mov         rdi, r12
