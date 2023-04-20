@@ -108,10 +108,6 @@ core:
 .operation_S:
     pop         rax
     pop         rcx
-    push        0x1C
-    jmp         .main_loop
-    pop         rax
-    pop         rcx
     lea         rdi, [rel values]
     lea         rsi, [rel receivers]
     mov         [rdi + r12 * 8], rcx
