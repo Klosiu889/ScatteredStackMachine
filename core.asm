@@ -104,7 +104,6 @@ core:
     mov         [values + r12 * 8], rsi
     mov         [receivers + r12 * 8], rdi
 .spinlock_receive:
-    lock
     cmp         qword [receivers + rdi * 8], N
     je          .spinlock_receive
     mov         rsi, [values + rdi * 8]
