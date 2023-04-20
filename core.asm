@@ -60,8 +60,8 @@ core:
     je          .operation_S
     jmp         .operation_number
 .operation_number:
-    sub         r14b, '0'
-    push        r14
+    ;sub         r14b, '0'
+    ;push        r14
     jmp         .main_loop
 .operation_plus:
     pop         r14
