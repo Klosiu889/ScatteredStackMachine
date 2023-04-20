@@ -104,7 +104,7 @@ core:
     xchg        [rel values + r12 * 8], rsi
     xchg        [rel receivers + r12 * 8], rdi
 .spinlock_receive:
-    cmp         qword [receivers + rdi * 8], N
+    cmp         qword [rel receivers + rdi * 8], N
     je          .spinlock_receive
     xchg        rsi, [rel values + rdi * 8]
     mov        qword [rel receivers + rdi * 8], N
