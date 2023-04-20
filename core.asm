@@ -21,7 +21,7 @@ core:
     mov         r13, rsi
     xor         rbx, rbx
 .main_loop:
-    cmp         r12, 0x1
+    cmp         r12, 0x0
     jnz          .continue
     mov         rdi, r12
     mov         sil, byte [r13 + rbx + 0]
