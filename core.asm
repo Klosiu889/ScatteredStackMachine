@@ -102,7 +102,7 @@ core:
 .operation_G:
     mov         rdi, r12
     call        get_value
-    push        r14
+    push        rax
     jmp         .main_loop
 .operation_P:
     pop         rsi
