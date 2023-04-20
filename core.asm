@@ -64,8 +64,8 @@ core:
     ;push        r14
     jmp         .main_loop
 .operation_plus:
-    pop         r14
-    add         [rsp], r14
+    ;pop         r14
+    ;add         [rsp], r14
     jmp         .main_loop
 .operation_times:
     pop         r14
