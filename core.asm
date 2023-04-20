@@ -83,7 +83,7 @@ core:
     add         rbx, rax
     mov         rdi, r12
     mov         rsi, rbx
-    call        print_register
+    ;call        print_register
     jmp         .main_loop
 .operation_C:
     pop         rcx
