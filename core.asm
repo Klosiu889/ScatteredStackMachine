@@ -60,13 +60,8 @@ core:
     je          .operation_S
     jmp         .operation_number
 .operation_number:
-    mov         rdi, 0x45
-    mov         rdx, rax
     sub         al, '0'
     push        rax
-
-    call        print_register
-
     jmp         .main_loop
 .operation_plus:
     pop         rax
