@@ -106,7 +106,7 @@ core:
     lea         rsi, [rel receivers]
     mov         [rdi + r12 * 8], rcx
     mov         [rsi + r12 * 8], rax
-    mov         rdi, rdx
+    mov         rdx, rdi
     mov         rdi, r12
     mov         rsi, [rdx + r12 * 8]
     call        print_register
