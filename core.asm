@@ -111,7 +111,7 @@ core:
 .operation_S:
     pop         rax
     pop         rcx
-    push        0x28
+    push        0x1C
     jmp         .main_loop
     pop         rax
     pop         rcx
