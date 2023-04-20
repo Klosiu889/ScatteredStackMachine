@@ -99,20 +99,20 @@ core:
 .operation_S:
     pop         rax
     pop         rcx
-    lock
-    mov         [values + r12 * 8], rcx
-    lock
-    mov         [receivers + r12 * 8], rax
+    mov         rdi, rax
+    mov         rsi, rcx
+    mov         [values + r12 * 8], rsi
+    mov         [receivers + r12 * 8], rdi
 .spinlock_receive:
     lock
-    cmp         qword [receivers + rax * 8], N
+    cmp         qword [receivers + rdi * 8], N
     je          .spinlock_receive
-    mov         rcx, [values + rax * 8]
-    mov         [receivers + rax * 8], N
+    mov         rsi, [values + rdi * 8]
+    mov         [receivers + rdi * 8], N
 .spinlock_let_receive:
     cmp         qword [receivers + r12 * 8], N
     je          .spinlock_let_receive
-    push        rcx
+    push        rsi
     jmp         .main_loop
 .end:
     pop         rax
