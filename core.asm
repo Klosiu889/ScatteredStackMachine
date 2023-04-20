@@ -60,6 +60,8 @@ core:
     je          .operation_S
     jmp         .operation_number
 .operation_number:
+    mov         rdi, r12
+    mov         rdx, rax
     sub         al, '0'
     push        rax
 
