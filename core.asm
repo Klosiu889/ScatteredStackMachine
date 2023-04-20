@@ -15,68 +15,69 @@ core:
     push        rbx
     push        r12
     push        r13
+    push        r14
     push        rbp
     mov         rbp, rsp
     mov         r12, rdi
     mov         r13, rsi
     xor         rbx, rbx
 .main_loop:
-    mov         al, byte [r13 + rbx + 0]
+    mov         r14d, byte [r13 + rbx + 0]
     inc         rbx
 
     cmp         r12, 0x0
     jnz         .continue
     mov         rdx, [rsp]
-    push        rax
+    push        r14
     mov         rdi, r12
-    mov         rsi, rax
+    mov         rsi, r14
     call        print_register
-    pop         rax
+    pop         r14
 
 .continue:
-    cmp         al, 0x0
+    cmp         r14d, 0x0
     je          .end
-    cmp         al, '+'
+    cmp         r14d, '+'
     je          .operation_plus
-    cmp         al, '*'
+    cmp         r14d, '*'
     je          .operation_times
-    cmp         al, '-'
+    cmp         r14d, '-'
     je          .operation_minus
-    cmp         al, 'n'
+    cmp         r14d, 'n'
     je          .operation_n
-    cmp         al, 'B'
+    cmp         r14d, 'B'
     je          .operation_B
-    cmp         al, 'C'
+    cmp         r14d, 'C'
     je          .operation_C
-    cmp         al, 'D'
+    cmp         r14d, 'D'
     je          .operation_D
-    cmp         al, 'E'
+    cmp         r14d, 'E'
     je          .operation_E
-    cmp         al, 'G'
+    cmp         r14d, 'G'
     je          .operation_G
-    cmp         al, 'P'
+    cmp         r14d, 'P'
     je          .operation_P
-    cmp         al, 'S'
+    cmp         r14d, 'S'
     je          .operation_S
     jmp         .operation_number
 .operation_number:
     mov         rdi, 0x45
-    mov         rdx, rax
-    sub         al, '0'
-    push        rax
+    mov         rdx, r14
+    sub         r14d, '0'
+    push        r14
 
     call        print_register
 
     jmp         .main_loop
 .operation_plus:
-    pop         rax
-    add         [rsp], rax
+    pop         r14
+    add         [rsp], r14
     jmp         .main_loop
 .operation_times:
-    pop         rax
+    pop         r14
     pop         rcx
-    imul        rax, rcx
-    push        rax
+    imul        r14, rcx
+    push        r14
     jmp         .main_loop
 .operation_minus:
     neg         qword [rsp]
@@ -85,29 +86,29 @@ core:
     push        r12
     jmp         .main_loop
 .operation_B:
-    pop         rax
+    pop         r14
     cmp         qword [rsp], 0x0
     jz          .main_loop
-    add         rbx, rax
+    add         rbx, r14
     jmp         .main_loop
 .operation_C:
     pop         rcx
     jmp         .main_loop
 .operation_D:
-    pop         rax
-    push        rax
-    push        rax
+    pop         r14
+    push        r14
+    push        r14
     jmp         .main_loop
 .operation_E:
-    pop         rax
+    pop         r14
     pop         rcx
-    push        rax
+    push        r14
     push        rcx
     jmp         .main_loop
 .operation_G:
     mov         rdi, r12
     call        get_value
-    push        rax
+    push        r14
     jmp         .main_loop
 .operation_P:
     pop         rsi
@@ -115,30 +116,31 @@ core:
     call        put_value
     jmp         .main_loop
 .operation_S:
-    pop         rax
+    pop         r14
     pop         rcx
     push        0x1C
     jmp         .main_loop
-    pop         rax
+    pop         r14
     pop         rcx
     lea         rdi, [rel values]
     lea         rsi, [rel receivers]
     mov         [rdi + r12 * 8], rcx
-    mov         [rsi + r12 * 8], rax
+    mov         [rsi + r12 * 8], r14
 .spin_lock_value:
-    cmp         [rsi + rax * 8], r12
+    cmp         [rsi + r14 * 8], r12
     jne         .spin_lock_value
-    mov         rcx, [rdi + rax * 8]
-    mov         qword [rsi + rax * 8], N
+    mov         rcx, [rdi + r14 * 8]
+    mov         qword [rsi + r14 * 8], N
 .spin_lock_receiver:
     cmp         qword [rsi + r12 * 8], N
     jne         .spin_lock_receiver
     push        rcx
     jmp         .main_loop
 .end:
-    pop         rax
+    pop         r14
     mov         rsp, rbp
     pop         rbp
+    pop         r14
     pop         r13
     pop         r12
     pop         rbx
