@@ -107,7 +107,7 @@ core:
     cmp         qword [receivers + rdi * 8], N
     je          .spinlock_receive
     xchg        rsi, [values + rdi * 8]
-    xchg        qword [receivers + rdi * 8], N
+    xchg        [receivers + rdi * 8], N
 .spinlock_let_receive:
     cmp         qword [receivers + r12 * 8], N
     je          .spinlock_let_receive
