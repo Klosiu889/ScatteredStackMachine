@@ -4,8 +4,8 @@ extern print_register
 
 section .data
     align 4
-    values: times N dd N
-    receivers: times N dd N
+    values: times N dq N
+    receivers: times N dq N
 
 section .text
 
