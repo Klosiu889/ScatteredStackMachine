@@ -64,7 +64,7 @@ core:
     push        rax
 
     mov         rdi, r12
-    mov         rsi, rax
+    mov         rdx, rax
     call        print_register
 
     jmp         .main_loop
