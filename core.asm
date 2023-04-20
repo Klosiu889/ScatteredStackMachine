@@ -25,7 +25,7 @@ core:
     inc         rbx
     cmp         r12, 0x1
     jnz         .continue
-    mov         rdx, [rsp]
+    mov         rdx, [rsp - 8]
     push        rax
     mov         rdi, r12
     mov         rsi, rax
