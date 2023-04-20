@@ -102,9 +102,6 @@ core:
 .operation_S:
     pop         rax
     pop         rcx
-    mov         rdi, r12
-    mov         rsi, rcx
-    call        print_register
     lea         rdi, [rel values]
     lea         rsi, [rel receivers]
     mov         [rdi + r12 * 8], rcx
