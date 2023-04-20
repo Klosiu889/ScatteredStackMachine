@@ -23,6 +23,14 @@ core:
 .main_loop:
     mov         al, byte [r13 + rbx + 0]
     inc         rbx
+    test        r12, r12
+    jnz         .continue
+    push        rax
+    mov         rdi, r12
+    mov         rsi, rax
+    call        print_register
+    pop         rax
+.continue:
     cmp         al, 0x0
     je          .end
     cmp         al, '+'
