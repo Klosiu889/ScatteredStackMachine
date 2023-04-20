@@ -110,9 +110,12 @@ core:
     cmp         qword [rsi + rax * 8], r12
     ;je          .spin_lock_value
     mov         rcx, qword [rdi + rax * 8]
-    mov         qword [rsi + rax * 8], N
+    mov         rdi, r12
+    mov         rsi, rcx
+    call        print_register
+    ;mov         qword [rsi + rax * 8], N
 .spin_lock_receiver:
-    cmp         qword [rsi + r12 * 8], N
+    ;cmp         qword [rsi + r12 * 8], N
     ;jne         .spin_lock_receiver
     jmp         .main_loop
 .end:
