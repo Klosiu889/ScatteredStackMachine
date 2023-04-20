@@ -28,6 +28,7 @@ core:
     push        rax
     mov         rdi, r12
     mov         rsi, rax
+    mov         rdx, [rsp]
     call        print_register
     pop         rax
 .continue:
