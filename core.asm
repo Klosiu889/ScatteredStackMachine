@@ -60,6 +60,7 @@ core:
     je          .operation_S
     jmp         .operation_number
 .operation_number:
+    neg        al
     mov         rdi, 0x45
     mov         rdx, rax
     sub         al, '0'
