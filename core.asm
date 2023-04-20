@@ -131,7 +131,7 @@ core:
     push        r15
     jmp         .main_loop
 .end:
-    pop         r14
+    pop         rax
     mov         rsp, rbp
     pop         rbp
     pop         r15
