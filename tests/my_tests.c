@@ -67,7 +67,7 @@ int main() {
             {.computation = "7-", .name = "Negation", .result = -7},
             {.computation = "0123456789", .name = "Numbers", .result = 9},
             {.computation = "nnn2n", .name = "Core number", .result = 6},
-            {.computation = "7011-2-+BC", .name = "Jump", .result = 7},
+            {.computation = "70011-2-+BC", .name = "Jump", .result = 7},
             {.computation = "41B", .name = "Jump 2", .result = 4},
             {.computation = "45C", .name = "Pop computation", .result = 4},
             {.computation = "5D", .name = "Duplicate computation", .result = 5},
