@@ -45,6 +45,8 @@ core:
     je          .operation_G
     cmp         al, 'P'
     je          .operation_P
+    cmp         al, 'S'
+    je          .operation_S
     jmp         .operation_number
 .operation_number:
     sub         al, '0'
