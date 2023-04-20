@@ -100,19 +100,7 @@ core:
 .operation_S:
     pop         rax
     pop         rcx
-    mov         rdi, rax
-    mov         rsi, rcx
-    mov        [rel values + r12 * 8], rsi
-    mov        [rel receivers + r12 * 8], rdi
-.spinlock_receive:
-    cmp         qword [rel receivers + rdi * 8], N
-    je          .spinlock_receive
-    mov        rsi, [rel values + rdi * 8]
-    mov        qword [rel receivers + rdi * 8], N
-.spinlock_let_receive:
-    cmp         qword [rel receivers + r12 * 8], N
-    je          .spinlock_let_receive
-    ;push        rsi
+    xchg        qword [rel values + rax * 8], rcx
     jmp         .main_loop
 .end:
     pop         rax
