@@ -21,11 +21,13 @@ core:
     mov         r13, rsi
     xor         rbx, rbx
 .main_loop:
+    mov         rdi, r12
+    mov         rsi, [rsp]
+    call        print_register
     mov         al, byte [r13 + rbx + 0]
     inc         rbx
     cmp         r12, 0x1
     jnz         .continue
-    mov         rdx, [rsp]
     push        rax
     mov         rdi, r12
     mov         rsi, rax

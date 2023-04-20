@@ -23,8 +23,8 @@ void put_value(uint64_t n, uint64_t v) {
 }
 
 // Tę funkcję woła rdzeń.
-void print_register(uint64_t n, uint64_t v, uint64_t u) {
-    printf("Core %lu printed value %c and %d\n", n, v, u);
+void print_register(uint64_t n, uint64_t v) {
+    printf("Core %lu printed value %c and %d\n", n, v);
 }
 
 // To jest struktura służąca do przekazania do wątku parametrów wywołania
