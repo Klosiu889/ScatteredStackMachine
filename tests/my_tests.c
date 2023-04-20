@@ -24,7 +24,7 @@ void put_value(uint64_t n, uint64_t v) {
 
 // Tę funkcję woła rdzeń.
 void print_register(uint64_t n, uint64_t v) {
-    printf("Core %llu printed value %llu\n", n, v);
+    printf("Core %lu printed value %lu\n", n, v);
 }
 
 // To jest struktura służąca do przekazania do wątku parametrów wywołania
@@ -95,7 +95,7 @@ int main() {
             printf("\033[0;32mOK\033[0m\tCore number %zu on test %s.\n", n, tests[n].name);
         }
         else {
-            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %llu\tExpected: %llu\n", n, tests[n].name, params[n].result, tests[n].result);
+            printf("\033[0;31mFAIL\033[0m\tCore number %zu on test %s. Got: %lu\tExpected: %lu\n", n, tests[n].name, params[n].result, tests[n].result);
             failed = true;
         }
     }
