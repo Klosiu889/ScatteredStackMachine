@@ -25,10 +25,11 @@ core:
     inc         rbx
     cmp         r12, 0x1
     jnz         .continue
+        mov         rdx, [rsp]
+
     push        rax
     mov         rdi, r12
     mov         rsi, rax
-    mov         rdx, [rsp]
     call        print_register
     pop         rax
 .continue:
