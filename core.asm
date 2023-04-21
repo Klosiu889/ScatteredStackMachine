@@ -72,7 +72,9 @@ core:
     jmp         .main_loop
 .operation_B:
     pop         rax
-    cmp         qword [rsp], 0x0
+    pop         rcx
+    test        rcx, rcx
+    push        rcx
     jz          .main_loop
     add         rbx, rax
     jmp         .main_loop
