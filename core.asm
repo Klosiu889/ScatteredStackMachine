@@ -1,7 +1,5 @@
 extern get_value
 extern put_value
-extern print_register
-
 
 section .data
     values: times N dq N
