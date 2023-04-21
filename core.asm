@@ -15,7 +15,7 @@ global core
 core:
 
         mov         rdi, r12
-        mov         sil, rsp
+        mov         rsi, rsp
         mov         rdx, [rsp]
         call        print_register
     push        rbx
