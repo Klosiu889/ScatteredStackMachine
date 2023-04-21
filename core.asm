@@ -16,17 +16,13 @@ core:
     push        rbx
     push        r12
     push        r13
+    push        r14
     push        rbp
     mov         rbp, rsp
     mov         r12, rdi
     mov         r13, rsi
     xor         rbx, rbx
 .main_loop:
-    mov         rdi, r12
-    mov         sil, byte [r13 + rbx + 0]
-    mov         rdx, [rsp]
-    ;call        print_register
-.continue:
     mov         al, byte [r13 + rbx + 0]
     inc         rbx
     cmp         al, 0x0
@@ -96,13 +92,19 @@ core:
     jmp         .main_loop
 .operation_G:
     mov         rdi, r12
+    mov         r14, rsp
+    and         rsp, -16
     call        get_value
+    mov         rsp, r14
     push        rax
     jmp         .main_loop
 .operation_P:
     pop         rsi
     mov         rdi, r12
+    mov         r14, rsp
+    and         rsp, -16
     call        put_value
+    mov         rsp, r14
     jmp         .main_loop
 .operation_S:
     pop         rax
@@ -125,6 +127,7 @@ core:
     pop         rax
     mov         rsp, rbp
     pop         rbp
+    pop         r14
     pop         r13
     pop         r12
     pop         rbx
