@@ -1,4 +1,4 @@
-N = 10000
+N = 10
 CFLAGS = -z noexecstack -pedantic -Wall -Wextra -Werror -std=c17 -pthread -O2 -DN=$(N)
 CC = gcc
 
