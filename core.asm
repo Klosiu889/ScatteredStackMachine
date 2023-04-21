@@ -14,10 +14,10 @@ global core
 
 core:
     add     rsp, -8
-        mov         rdi, r12
-        mov         rsi, rsp
-        mov         rdx, [rsp]
-        call        print_register
+        ;mov         rdi, r12
+        ;mov         rsi, rsp
+        ;mov         rdx, [rsp]
+        ;call        print_register
     push        rbx
     push        r12
     push        r13
