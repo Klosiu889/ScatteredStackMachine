@@ -38,3 +38,16 @@ fi
 
 cd ..
 rm -rf build
+
+cd tests
+cp ../core.asm core.asm
+make
+if [ $? -eq 0 ]; then
+    echo -e "${GREEN}-----MIMUW tests succeeded-----${NC}"
+else
+    echo -e "${RED}-----MIMUW tests failed-----${NC}"
+    exit 1
+fi
+rm core.asm
+rm *.o
+cd ..
