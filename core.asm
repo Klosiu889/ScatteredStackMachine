@@ -12,7 +12,6 @@ section .text
 global core
 
 core:
-    add     rsp, 8
     push        rbx
     push        r12
     push        r13
