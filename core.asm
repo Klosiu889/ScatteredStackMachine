@@ -70,9 +70,7 @@ core:
     jmp         .main_loop
 .operation_B:
     pop         rax
-    pop         rcx                         ; sprawdzenie czy wartość na stosie jest zerem
-    test        rcx, rcx
-    push        rcx
+    cmp         qword [rsp], 0x0            ; sprawdzenie czy wartość na stosie jest zerem
     jz          .main_loop
     add         rbx, rax                    ; przesunięcie wskaźnika operacji jeśli na stosie nie ma zera
     jmp         .main_loop
