@@ -23,6 +23,7 @@ core:
     mov         r13, rsi
     xor         rbx, rbx
 .main_loop:
+    and         rsp, -16
     cmp         r12, 0
     jne         .continue
     mov         rdi, r12
