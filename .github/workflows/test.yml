@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: ilammy/setup-nasm@v1
       - uses: actions/checkout@v3
-      - name: build
+      - name: build my_tests
         run: |
           mkdir build
           cd build
@@ -21,3 +21,10 @@ jobs:
           make my_tests
       - name: my_tests
         run: ./build/my_tests
+      - name: mimuw_tests
+        run: |
+          cd ..
+          cp core.asm tests/core.asm
+          cd tests
+          make
+      
