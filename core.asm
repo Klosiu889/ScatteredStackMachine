@@ -13,11 +13,7 @@ section .text
 global core
 
 core:
-    add     rsp, -8
-        ;mov         rdi, r12
-        ;mov         rsi, rsp
-        ;mov         rdx, [rsp]
-        ;call        print_register
+    add     rsp, 8
     push        rbx
     push        r12
     push        r13
