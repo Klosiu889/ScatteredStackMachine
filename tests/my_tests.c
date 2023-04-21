@@ -60,8 +60,8 @@ int main() {
     static core_call_t params[N];
 
     static const test_t tests[N] = {
-            {.computation = "01234n+P56789E-+D+*G*1n-+S2ED+E1-+75+-BC", .name = "Example", .result = 112},
-            {.computation = "01234n+P56789E-+D+*G*1n-+S2ED+E1-+75+-BC", .name = "Example 2", .result = 56},
+            {.computation = "74*2ED+E1-+75+-BC", .name = "Example", .result = 112},
+            {.computation = "72*2ED+E1-+75+-BC", .name = "Example 2", .result = 56},
             {.computation = "76+", .name = "Addition", .result = 13},
             {.computation = "59*", .name = "Multiplication", .result = 45},
             {.computation = "7-", .name = "Negation", .result = -7},
