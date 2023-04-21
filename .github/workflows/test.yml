@@ -23,7 +23,6 @@ jobs:
         run: ./build/my_tests
       - name: mimuw_tests
         run: |
-          cd ..
           cp core.asm tests/core.asm
           cd tests
           make
