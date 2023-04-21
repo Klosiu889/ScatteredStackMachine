@@ -13,7 +13,7 @@ section .text
 global core
 
 core:
-    align 8
+    add     rsp, -8
         mov         rdi, r12
         mov         rsi, rsp
         mov         rdx, [rsp]
