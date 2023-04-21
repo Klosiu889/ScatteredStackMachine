@@ -22,7 +22,7 @@ core:
     mov         r13, rsi
     xor         rbx, rbx
 .main_loop:
-    call print_register
+    ;call print_register
     mov         al, byte [r13 + rbx + 0]
     inc         rbx
     cmp         al, 0x0
