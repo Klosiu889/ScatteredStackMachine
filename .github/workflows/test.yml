@@ -11,7 +11,14 @@ jobs:
     if: ${{ contains(github.event.head_commit.message, '[TEST]') }}
     
     steps:
-      - uses: ilammy/setup-nasm@v1
+      - uses: actions/cache@v3
+        with:
+          path: ~/nasm
+          key: nasm-2.15.05
+      - name: Setup nasm
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: ilammy/setup-nasm@v1
+
       - uses: actions/checkout@v3
       - name: build my_tests
         run: |
